@@ -1,4 +1,7 @@
-const API_BASE = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
+const API_BASE =
+  process.env.REACT_APP_API_BASE_URL ||
+  (typeof window !== 'undefined' && window.location.hostname !== 'localhost' ? '' : 'http://localhost:5000');
+
 const FALLBACK_PRODUCTS_PATH = '/data/products.json';
 
 const fetchJson = async (url) => {
@@ -11,9 +14,12 @@ const fetchJson = async (url) => {
 
 const fetchFallbackProducts = async () => fetchJson(FALLBACK_PRODUCTS_PATH);
 
+const productsEndpoint = () => `${API_BASE}/api/products`;
+const productEndpoint = (id) => `${API_BASE}/api/products/${id}`;
+
 export const fetchProducts = async () => {
   try {
-    return await fetchJson(`${API_BASE}/api/products`);
+    return await fetchJson(productsEndpoint());
   } catch (error) {
     return fetchFallbackProducts();
   }
@@ -21,7 +27,7 @@ export const fetchProducts = async () => {
 
 export const fetchProductById = async (id) => {
   try {
-    return await fetchJson(`${API_BASE}/api/products/${id}`);
+    return await fetchJson(productEndpoint(id));
   } catch (error) {
     const products = await fetchFallbackProducts();
     const product = products.find((item) => item.id === id);
