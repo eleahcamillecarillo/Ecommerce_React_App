@@ -12,29 +12,37 @@ const STORAGE_KEYS = {
   recentlyViewed: 'kramille_recently_viewed'
 };
 
+const readStorage = (key, fallback) => {
+  if (typeof window === 'undefined' || !window.localStorage) return fallback;
+  return safeParse(window.localStorage.getItem(key), fallback);
+};
+
+const writeStorage = (key, value) => {
+  if (typeof window === 'undefined' || !window.localStorage) return;
+  window.localStorage.setItem(key, JSON.stringify(value));
+};
+
 export function ShopProvider({ children }) {
   const [products] = useState(productsData);
-  const [cart, setCart] = useState(() => safeParse(localStorage.getItem(STORAGE_KEYS.cart), []));
-  const [wishlistIds, setWishlistIds] = useState(() =>
-    safeParse(localStorage.getItem(STORAGE_KEYS.wishlist), [])
-  );
-  const [orders, setOrders] = useState(() => safeParse(localStorage.getItem(STORAGE_KEYS.orders), []));
-  const [user, setUser] = useState(() => safeParse(localStorage.getItem(STORAGE_KEYS.user), null));
+  const [cart, setCart] = useState(() => readStorage(STORAGE_KEYS.cart, []));
+  const [wishlistIds, setWishlistIds] = useState(() => readStorage(STORAGE_KEYS.wishlist, []));
+  const [orders, setOrders] = useState(() => readStorage(STORAGE_KEYS.orders, []));
+  const [user, setUser] = useState(() => readStorage(STORAGE_KEYS.user, null));
   const [recentlyViewedIds, setRecentlyViewedIds] = useState(() =>
-    safeParse(localStorage.getItem(STORAGE_KEYS.recentlyViewed), [])
+    readStorage(STORAGE_KEYS.recentlyViewed, [])
   );
   const [couponCode, setCouponCode] = useState('');
   const [toast, setToast] = useState('');
 
-  useEffect(() => localStorage.setItem(STORAGE_KEYS.cart, JSON.stringify(cart)), [cart]);
+  useEffect(() => writeStorage(STORAGE_KEYS.cart, cart), [cart]);
   useEffect(
-    () => localStorage.setItem(STORAGE_KEYS.wishlist, JSON.stringify(wishlistIds)),
+    () => writeStorage(STORAGE_KEYS.wishlist, wishlistIds),
     [wishlistIds]
   );
-  useEffect(() => localStorage.setItem(STORAGE_KEYS.orders, JSON.stringify(orders)), [orders]);
-  useEffect(() => localStorage.setItem(STORAGE_KEYS.user, JSON.stringify(user)), [user]);
+  useEffect(() => writeStorage(STORAGE_KEYS.orders, orders), [orders]);
+  useEffect(() => writeStorage(STORAGE_KEYS.user, user), [user]);
   useEffect(
-    () => localStorage.setItem(STORAGE_KEYS.recentlyViewed, JSON.stringify(recentlyViewedIds)),
+    () => writeStorage(STORAGE_KEYS.recentlyViewed, recentlyViewedIds),
     [recentlyViewedIds]
   );
 
