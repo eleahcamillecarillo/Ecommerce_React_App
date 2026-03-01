@@ -1,5 +1,5 @@
-export const SHIPPING_FEE = 199;
-export const FREE_SHIPPING_THRESHOLD = 3000;
+export const SHIPPING_FEE = 99;
+export const FREE_SHIPPING_THRESHOLD = 2000;
 
 const COUPONS = {
   WELCOME10: { type: 'percent', value: 10 },

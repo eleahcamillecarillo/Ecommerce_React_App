@@ -20,8 +20,8 @@ describe('store totals', () => {
     });
 
     expect(result.discount).toBe(200);
-    expect(result.shipping).toBe(199);
-    expect(result.total).toBe(999);
+    expect(result.shipping).toBe(99);
+    expect(result.total).toBe(899);
   });
 
   test('returns null for invalid coupon', () => {

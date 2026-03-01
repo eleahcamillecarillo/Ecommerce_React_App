@@ -1,281 +1,338 @@
 [
-  {
-    "id": "krm-101",
-    "name": "Rose Linen Blouse",
-    "category": "Tops",
-    "price": 1290,
-    "originalPrice": 1590,
-    "rating": 4.8,
-    "reviews": 146,
-    "stock": 22,
-    "description": "Breathable linen blouse with relaxed fit and soft rose tone.",
-    "image": "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=80",
-    "gallery": [
-      "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1495385794356-15371f348c31?auto=format&fit=crop&w=800&q=80"
-    ],
-    "sizes": ["XS", "S", "M", "L"],
-    "colors": ["Blush", "Ivory", "Rose"],
-    "tags": ["new", "bestseller"]
-  },
-  {
-    "id": "krm-102",
-    "name": "Candy Ribbed Top",
-    "category": "Tops",
-    "price": 990,
-    "originalPrice": 1190,
-    "rating": 4.6,
-    "reviews": 88,
-    "stock": 30,
-    "description": "Stretch ribbed top with flattering square neckline.",
-    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80",
-    "tags": ["sale"]
-  },
-  {
-    "id": "krm-103",
-    "name": "Dew Puff Sleeve Blouse",
-    "category": "Tops",
-    "price": 1490,
-    "originalPrice": 1790,
-    "rating": 4.7,
-    "reviews": 63,
-    "stock": 18,
-    "description": "Lightweight puff-sleeve blouse for soft day looks.",
-    "image": "https://images.unsplash.com/photo-1464863979621-258859e62245?auto=format&fit=crop&w=800&q=80",
-    "tags": ["new"]
-  },
-  {
-    "id": "krm-104",
-    "name": "Blush Pleated Skirt",
-    "category": "Bottoms",
-    "price": 1590,
-    "originalPrice": 1990,
-    "rating": 4.7,
-    "reviews": 98,
-    "stock": 16,
-    "description": "Flowy midi skirt with fine pleats and feminine movement.",
-    "image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80",
-    "tags": ["sale"]
-  },
-  {
-    "id": "krm-105",
-    "name": "Blossom Wide Pants",
-    "category": "Bottoms",
-    "price": 1790,
-    "originalPrice": 2290,
-    "rating": 4.7,
-    "reviews": 120,
-    "stock": 14,
-    "description": "High-waist wide-leg trousers tailored for comfort and polish.",
-    "image": "https://images.unsplash.com/photo-1475180098004-ca77a66827be?auto=format&fit=crop&w=800&q=80",
-    "tags": ["bestseller"]
-  },
-  {
-    "id": "krm-106",
-    "name": "Petal Straight Jeans",
-    "category": "Bottoms",
-    "price": 1890,
-    "originalPrice": 2390,
-    "rating": 4.5,
-    "reviews": 54,
-    "stock": 21,
-    "description": "Soft-wash straight denim with a clean ankle cut.",
-    "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80",
-    "tags": ["new"]
-  },
-  {
-    "id": "krm-107",
-    "name": "Petal Satin Dress",
-    "category": "Dresses",
-    "price": 2490,
-    "originalPrice": 2990,
-    "rating": 4.6,
-    "reviews": 84,
-    "stock": 9,
-    "description": "Elegant satin slip dress with adjustable straps.",
-    "image": "https://images.unsplash.com/photo-1495385794356-15371f348c31?auto=format&fit=crop&w=800&q=80",
-    "tags": ["new"]
-  },
-  {
-    "id": "krm-108",
-    "name": "Peony Wrap Dress",
-    "category": "Dresses",
-    "price": 2290,
-    "originalPrice": 2690,
-    "rating": 4.8,
-    "reviews": 111,
-    "stock": 13,
-    "description": "Flattering wrap silhouette with airy drape and tie waist.",
-    "image": "https://images.unsplash.com/photo-1581044777550-4cfa60707c03?auto=format&fit=crop&w=800&q=80",
-    "tags": ["bestseller"]
-  },
-  {
-    "id": "krm-109",
-    "name": "Mauve Midi Shirt Dress",
-    "category": "Dresses",
-    "price": 2390,
-    "originalPrice": 2890,
-    "rating": 4.4,
-    "reviews": 42,
-    "stock": 11,
-    "description": "Button-front midi with structured collar and belt detail.",
-    "image": "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=800&q=80",
-    "tags": ["premium"]
-  },
-  {
-    "id": "krm-110",
-    "name": "Pearl Knit Cardigan",
-    "category": "Outerwear",
-    "price": 2190,
-    "originalPrice": 2690,
-    "rating": 4.9,
-    "reviews": 212,
-    "stock": 12,
-    "description": "Soft knit cardigan with pearl-style buttons.",
-    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80",
-    "tags": ["bestseller"]
-  },
-  {
-    "id": "krm-111",
-    "name": "Rosette Trench Coat",
-    "category": "Outerwear",
-    "price": 3690,
-    "originalPrice": 4290,
-    "rating": 4.8,
-    "reviews": 77,
-    "stock": 7,
-    "description": "Lightweight trench with blush-toned structure.",
-    "image": "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=800&q=80",
-    "tags": ["new", "premium"]
-  },
-  {
-    "id": "krm-112",
-    "name": "Cloud Pink Hoodie",
-    "category": "Loungewear",
-    "price": 1690,
-    "originalPrice": 2090,
-    "rating": 4.5,
-    "reviews": 67,
-    "stock": 20,
-    "description": "Ultra-soft oversized hoodie for cozy days.",
-    "image": "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=800&q=80",
-    "tags": ["sale"]
-  },
-  {
-    "id": "krm-113",
-    "name": "Rose Lounge Joggers",
-    "category": "Loungewear",
-    "price": 1390,
-    "originalPrice": 1690,
-    "rating": 4.6,
-    "reviews": 59,
-    "stock": 25,
-    "description": "Relaxed joggers with soft brushed interior.",
-    "image": "https://images.unsplash.com/photo-1506629905607-cd6e3e5d86f7?auto=format&fit=crop&w=800&q=80",
-    "tags": ["new"]
-  },
-  {
-    "id": "krm-114",
-    "name": "Velvet Bow Headband",
-    "category": "Accessories",
-    "price": 390,
-    "originalPrice": 550,
-    "rating": 4.7,
-    "reviews": 34,
-    "stock": 40,
-    "description": "Soft velvet headband finished with mini bow detail.",
-    "image": "https://images.unsplash.com/photo-1617019114583-affb34d1b3cd?auto=format&fit=crop&w=800&q=80",
-    "tags": ["gift"]
-  },
-  {
-    "id": "krm-115",
-    "name": "Pearl Hoop Earrings",
-    "category": "Accessories",
-    "price": 690,
-    "originalPrice": 890,
-    "rating": 4.8,
-    "reviews": 73,
-    "stock": 36,
-    "description": "Everyday hoops with pearl-inspired accents.",
-    "image": "https://images.unsplash.com/photo-1635767798638-3e25273a8236?auto=format&fit=crop&w=800&q=80",
-    "tags": ["bestseller", "gift"]
-  },
-  {
-    "id": "krm-116",
-    "name": "Blush Mini Tote",
-    "category": "Bags",
-    "price": 1990,
-    "originalPrice": 2490,
-    "rating": 4.7,
-    "reviews": 95,
-    "stock": 15,
-    "description": "Structured mini tote with detachable shoulder strap.",
-    "image": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&q=80",
-    "tags": ["new", "premium"]
-  },
-  {
-    "id": "krm-117",
-    "name": "Rose Crossbody Bag",
-    "category": "Bags",
-    "price": 1790,
-    "originalPrice": 2190,
-    "rating": 4.5,
-    "reviews": 48,
-    "stock": 19,
-    "description": "Compact crossbody with clean shape and zip closure.",
-    "image": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=800&q=80",
-    "tags": ["sale"]
-  },
-  {
-    "id": "krm-118",
-    "name": "Petal Court Sneakers",
-    "category": "Footwear",
-    "price": 2190,
-    "originalPrice": 2690,
-    "rating": 4.6,
-    "reviews": 66,
-    "stock": 20,
-    "description": "Comfort court sneakers in blush-white palette.",
-    "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=800&q=80",
-    "tags": ["new"]
-  },
-  {
-    "id": "krm-119",
-    "name": "Rose Ballet Flats",
-    "category": "Footwear",
-    "price": 1890,
-    "originalPrice": 2290,
-    "rating": 4.7,
-    "reviews": 58,
-    "stock": 17,
-    "description": "Soft ballet flats with cushioned insole.",
-    "image": "https://images.unsplash.com/photo-1531310197839-ccf54634509e?auto=format&fit=crop&w=800&q=80",
-    "tags": ["bestseller"]
-  },
-  {
-    "id": "krm-120",
-    "name": "Bloom Active Set",
-    "category": "Activewear",
-    "price": 1990,
-    "originalPrice": 2390,
-    "rating": 4.8,
-    "reviews": 82,
-    "stock": 23,
-    "description": "Seamless active top and leggings in soft blush tone.",
-    "image": "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80",
-    "tags": ["new", "bestseller"]
-  },
-  {
-    "id": "krm-121",
-    "name": "Moonlight Satin Pajama Set",
-    "category": "Sleepwear",
-    "price": 1690,
-    "originalPrice": 2090,
-    "rating": 4.9,
-    "reviews": 104,
-    "stock": 26,
-    "description": "Two-piece satin sleep set with relaxed fit.",
-    "image": "https://images.unsplash.com/photo-1614252369475-531eba835eb1?auto=format&fit=crop&w=800&q=80",
-    "tags": ["gift", "premium"]
-  }
+    {
+        "id":  "krm-101",
+        "name":  "Rose Linen Blouse",
+        "category":  "Tops",
+        "price":  930,
+        "originalPrice":  1130,
+        "rating":  4.8,
+        "reviews":  146,
+        "stock":  22,
+        "description":  "Breathable linen blouse with relaxed fit and soft rose tone.",
+        "image":  "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format\u0026fit=crop\u0026w=800\u0026q=80",
+        "gallery":  [
+                        "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format\u0026fit=crop\u0026w=800\u0026q=80",
+                        "https://images.unsplash.com/photo-1495385794356-15371f348c31?auto=format\u0026fit=crop\u0026w=800\u0026q=80"
+                    ],
+        "sizes":  [
+                      "XS",
+                      "S",
+                      "M",
+                      "L"
+                  ],
+        "colors":  [
+                       "Blush",
+                       "Ivory",
+                       "Rose"
+                   ],
+        "tags":  [
+                     "new",
+                     "bestseller"
+                 ]
+    },
+    {
+        "id":  "krm-102",
+        "name":  "Candy Ribbed Top",
+        "category":  "Tops",
+        "price":  710,
+        "originalPrice":  870,
+        "rating":  4.6,
+        "reviews":  88,
+        "stock":  30,
+        "description":  "Stretch ribbed top with flattering square neckline.",
+        "image":  "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format\u0026fit=crop\u0026w=800\u0026q=80",
+        "tags":  [
+                     "sale"
+                 ]
+    },
+    {
+        "id":  "krm-103",
+        "name":  "Dew Puff Sleeve Blouse",
+        "category":  "Tops",
+        "price":  1070,
+        "originalPrice":  1310,
+        "rating":  4.7,
+        "reviews":  63,
+        "stock":  18,
+        "description":  "Lightweight puff-sleeve blouse for soft day looks.",
+        "image":  "https://images.unsplash.com/photo-1464863979621-258859e62245?auto=format\u0026fit=crop\u0026w=800\u0026q=80",
+        "tags":  [
+                     "new"
+                 ]
+    },
+    {
+        "id":  "krm-104",
+        "name":  "Blush Pleated Skirt",
+        "category":  "Bottoms",
+        "price":  1140,
+        "originalPrice":  1390,
+        "rating":  4.7,
+        "reviews":  98,
+        "stock":  16,
+        "description":  "Flowy midi skirt with fine pleats and feminine movement.",
+        "image":  "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format\u0026fit=crop\u0026w=800\u0026q=80",
+        "tags":  [
+                     "sale"
+                 ]
+    },
+    {
+        "id":  "krm-105",
+        "name":  "Blossom Wide Pants",
+        "category":  "Bottoms",
+        "price":  1290,
+        "originalPrice":  1570,
+        "rating":  4.7,
+        "reviews":  120,
+        "stock":  14,
+        "description":  "High-waist wide-leg trousers tailored for comfort and polish.",
+        "image":  "https://images.unsplash.com/photo-1475180098004-ca77a66827be?auto=format\u0026fit=crop\u0026w=800\u0026q=80",
+        "tags":  [
+                     "bestseller"
+                 ]
+    },
+    {
+        "id":  "krm-106",
+        "name":  "Petal Straight Jeans",
+        "category":  "Bottoms",
+        "price":  1360,
+        "originalPrice":  1660,
+        "rating":  4.5,
+        "reviews":  54,
+        "stock":  21,
+        "description":  "Soft-wash straight denim with a clean ankle cut.",
+        "image":  "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format\u0026fit=crop\u0026w=800\u0026q=80",
+        "tags":  [
+                     "new"
+                 ]
+    },
+    {
+        "id":  "krm-107",
+        "name":  "Petal Satin Dress",
+        "category":  "Dresses",
+        "price":  1790,
+        "originalPrice":  2180,
+        "rating":  4.6,
+        "reviews":  84,
+        "stock":  9,
+        "description":  "Elegant satin slip dress with adjustable straps.",
+        "image":  "https://images.unsplash.com/photo-1495385794356-15371f348c31?auto=format\u0026fit=crop\u0026w=800\u0026q=80",
+        "tags":  [
+                     "new"
+                 ]
+    },
+    {
+        "id":  "krm-108",
+        "name":  "Peony Wrap Dress",
+        "category":  "Dresses",
+        "price":  1650,
+        "originalPrice":  2010,
+        "rating":  4.8,
+        "reviews":  111,
+        "stock":  13,
+        "description":  "Flattering wrap silhouette with airy drape and tie waist.",
+        "image":  "https://images.unsplash.com/photo-1581044777550-4cfa60707c03?auto=format\u0026fit=crop\u0026w=800\u0026q=80",
+        "tags":  [
+                     "bestseller"
+                 ]
+    },
+    {
+        "id":  "krm-109",
+        "name":  "Mauve Midi Shirt Dress",
+        "category":  "Dresses",
+        "price":  1720,
+        "originalPrice":  2100,
+        "rating":  4.4,
+        "reviews":  42,
+        "stock":  11,
+        "description":  "Button-front midi with structured collar and belt detail.",
+        "image":  "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format\u0026fit=crop\u0026w=800\u0026q=80",
+        "tags":  [
+                     "premium"
+                 ]
+    },
+    {
+        "id":  "krm-110",
+        "name":  "Pearl Knit Cardigan",
+        "category":  "Outerwear",
+        "price":  1580,
+        "originalPrice":  1930,
+        "rating":  4.9,
+        "reviews":  212,
+        "stock":  12,
+        "description":  "Soft knit cardigan with pearl-style buttons.",
+        "image":  "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format\u0026fit=crop\u0026w=800\u0026q=80",
+        "tags":  [
+                     "bestseller"
+                 ]
+    },
+    {
+        "id":  "krm-111",
+        "name":  "Rosette Trench Coat",
+        "category":  "Outerwear",
+        "price":  2660,
+        "originalPrice":  3250,
+        "rating":  4.8,
+        "reviews":  77,
+        "stock":  7,
+        "description":  "Lightweight trench with blush-toned structure.",
+        "image":  "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format\u0026fit=crop\u0026w=800\u0026q=80",
+        "tags":  [
+                     "new",
+                     "premium"
+                 ]
+    },
+    {
+        "id":  "krm-112",
+        "name":  "Cloud Pink Hoodie",
+        "category":  "Loungewear",
+        "price":  1220,
+        "originalPrice":  1490,
+        "rating":  4.5,
+        "reviews":  67,
+        "stock":  20,
+        "description":  "Ultra-soft oversized hoodie for cozy days.",
+        "image":  "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format\u0026fit=crop\u0026w=800\u0026q=80",
+        "tags":  [
+                     "sale"
+                 ]
+    },
+    {
+        "id":  "krm-113",
+        "name":  "Rose Lounge Joggers",
+        "category":  "Loungewear",
+        "price":  1000,
+        "originalPrice":  1220,
+        "rating":  4.6,
+        "reviews":  59,
+        "stock":  25,
+        "description":  "Relaxed joggers with soft brushed interior.",
+        "image":  "https://images.unsplash.com/photo-1506629905607-cd6e3e5d86f7?auto=format\u0026fit=crop\u0026w=800\u0026q=80",
+        "tags":  [
+                     "new"
+                 ]
+    },
+    {
+        "id":  "krm-114",
+        "name":  "Velvet Bow Headband",
+        "category":  "Accessories",
+        "price":  280,
+        "originalPrice":  340,
+        "rating":  4.7,
+        "reviews":  34,
+        "stock":  40,
+        "description":  "Soft velvet headband finished with mini bow detail.",
+        "image":  "https://images.unsplash.com/photo-1617019114583-affb34d1b3cd?auto=format\u0026fit=crop\u0026w=800\u0026q=80",
+        "tags":  [
+                     "gift"
+                 ]
+    },
+    {
+        "id":  "krm-115",
+        "name":  "Pearl Hoop Earrings",
+        "category":  "Accessories",
+        "price":  500,
+        "originalPrice":  610,
+        "rating":  4.8,
+        "reviews":  73,
+        "stock":  36,
+        "description":  "Everyday hoops with pearl-inspired accents.",
+        "image":  "https://images.unsplash.com/photo-1635767798638-3e25273a8236?auto=format\u0026fit=crop\u0026w=800\u0026q=80",
+        "tags":  [
+                     "bestseller",
+                     "gift"
+                 ]
+    },
+    {
+        "id":  "krm-116",
+        "name":  "Blush Mini Tote",
+        "category":  "Bags",
+        "price":  1430,
+        "originalPrice":  1740,
+        "rating":  4.7,
+        "reviews":  95,
+        "stock":  15,
+        "description":  "Structured mini tote with detachable shoulder strap.",
+        "image":  "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format\u0026fit=crop\u0026w=800\u0026q=80",
+        "tags":  [
+                     "new",
+                     "premium"
+                 ]
+    },
+    {
+        "id":  "krm-117",
+        "name":  "Rose Crossbody Bag",
+        "category":  "Bags",
+        "price":  1290,
+        "originalPrice":  1570,
+        "rating":  4.5,
+        "reviews":  48,
+        "stock":  19,
+        "description":  "Compact crossbody with clean shape and zip closure.",
+        "image":  "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format\u0026fit=crop\u0026w=800\u0026q=80",
+        "tags":  [
+                     "sale"
+                 ]
+    },
+    {
+        "id":  "krm-118",
+        "name":  "Petal Court Sneakers",
+        "category":  "Footwear",
+        "price":  1580,
+        "originalPrice":  1930,
+        "rating":  4.6,
+        "reviews":  66,
+        "stock":  20,
+        "description":  "Comfort court sneakers in blush-white palette.",
+        "image":  "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format\u0026fit=crop\u0026w=800\u0026q=80",
+        "tags":  [
+                     "new"
+                 ]
+    },
+    {
+        "id":  "krm-119",
+        "name":  "Rose Ballet Flats",
+        "category":  "Footwear",
+        "price":  1360,
+        "originalPrice":  1660,
+        "rating":  4.7,
+        "reviews":  58,
+        "stock":  17,
+        "description":  "Soft ballet flats with cushioned insole.",
+        "image":  "https://images.unsplash.com/photo-1531310197839-ccf54634509e?auto=format\u0026fit=crop\u0026w=800\u0026q=80",
+        "tags":  [
+                     "bestseller"
+                 ]
+    },
+    {
+        "id":  "krm-120",
+        "name":  "Bloom Active Set",
+        "category":  "Activewear",
+        "price":  1430,
+        "originalPrice":  1740,
+        "rating":  4.8,
+        "reviews":  82,
+        "stock":  23,
+        "description":  "Seamless active top and leggings in soft blush tone.",
+        "image":  "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format\u0026fit=crop\u0026w=800\u0026q=80",
+        "tags":  [
+                     "new",
+                     "bestseller"
+                 ]
+    },
+    {
+        "id":  "krm-121",
+        "name":  "Moonlight Satin Pajama Set",
+        "category":  "Sleepwear",
+        "price":  1220,
+        "originalPrice":  1490,
+        "rating":  4.9,
+        "reviews":  104,
+        "stock":  26,
+        "description":  "Two-piece satin sleep set with relaxed fit.",
+        "image":  "https://images.unsplash.com/photo-1614252369475-531eba835eb1?auto=format\u0026fit=crop\u0026w=800\u0026q=80",
+        "tags":  [
+                     "gift",
+                     "premium"
+                 ]
+    }
 ]

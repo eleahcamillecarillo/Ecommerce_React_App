@@ -1,7 +1,7 @@
 export const brand = {
   name: "Kramille's Closet",
   tagline: 'Curated pink essentials for everyday confidence.',
-  announcement: 'Free shipping for orders over Php 3,000'
+  announcement: 'Free shipping for orders over Php 2,000'
 };
 
 export const promoEndDate = '2026-12-31T23:59:59+08:00';
