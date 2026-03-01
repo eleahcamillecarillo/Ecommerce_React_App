@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import EmptyState from '../components/EmptyState';
 
-function AccountPage({ user, onLogin, onLogout }) {
-  const [form, setForm] = useState({ firstName: '', email: '', address: '' });
-
+function AccountPage({ user, onLogout }) {
   if (user) {
     return (
       <main className="container section-space">
@@ -19,15 +19,14 @@ function AccountPage({ user, onLogin, onLogout }) {
 
   return (
     <main className="container section-space">
-      <h1>Sign Up / Login</h1>
-      <div className="form-card">
-        <input placeholder="First Name" value={form.firstName} onChange={(e) => setForm({ ...form, firstName: e.target.value })} />
-        <input placeholder="Email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
-        <input placeholder="Address" value={form.address} onChange={(e) => setForm({ ...form, address: e.target.value })} />
-        <button className="btn btn-primary" onClick={() => onLogin(form)} disabled={!form.firstName || !form.email}>
-          Continue
-        </button>
-      </div>
+      <h1>My Account</h1>
+      <EmptyState
+        title="You are not signed in"
+        text="Login or sign up to access account details and order checkout."
+      />
+      <Link className="btn btn-primary" to="/auth?redirect=%2Faccount">
+        Login / Sign Up
+      </Link>
     </main>
   );
 }

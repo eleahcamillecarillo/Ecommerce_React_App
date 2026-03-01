@@ -16,6 +16,7 @@ import WishlistPage from './pages/WishlistPage';
 import AboutPage from './pages/AboutPage';
 import CheckoutPage from './pages/CheckoutPage';
 import AccountPage from './pages/AccountPage';
+import AuthPage from './pages/AuthPage';
 import OrdersPage from './pages/OrdersPage';
 import OrderConfirmationPage from './pages/OrderConfirmationPage';
 import FAQPage from './pages/support/FAQPage';
@@ -52,6 +53,8 @@ function App() {
       <Navbar
         cartCount={cart.reduce((sum, item) => sum + item.quantity, 0)}
         wishlistCount={wishlistIds.length}
+        user={user}
+        onLogout={logout}
       />
 
       <Routes>
@@ -98,6 +101,7 @@ function App() {
               couponCode={couponCode}
               totals={totals}
               products={products}
+              user={user}
               onRemove={removeFromCart}
               onQuantityChange={updateCartQuantity}
               onApplyCoupon={applyCoupon}
@@ -106,7 +110,13 @@ function App() {
         />
         <Route
           path="/checkout"
-          element={<CheckoutPage cart={cart} totals={totals} onPlaceOrder={placeOrder} />}
+          element={
+            user ? (
+              <CheckoutPage cart={cart} totals={totals} onPlaceOrder={placeOrder} />
+            ) : (
+              <Navigate to="/auth?redirect=%2Fcheckout" replace />
+            )
+          }
         />
         <Route path="/order-confirmation/:orderId" element={<OrderConfirmationPage orders={orders} />} />
         <Route path="/wishlist" element={<WishlistPage wishlist={wishlist} onAddToCart={addToCart} onToggleWishlist={toggleWishlist} />} />
@@ -114,7 +124,8 @@ function App() {
         <Route path="/faq" element={<FAQPage />} />
         <Route path="/shipping-returns" element={<ShippingReturnsPage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/account" element={<AccountPage user={user} onLogin={login} onLogout={logout} />} />
+        <Route path="/auth" element={<AuthPage onLogin={login} />} />
+        <Route path="/account" element={<AccountPage user={user} onLogout={logout} />} />
         <Route path="/orders" element={<OrdersPage orders={orders} />} />
         <Route path="/home" element={<Navigate to="/" replace />} />
         <Route

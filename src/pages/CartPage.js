@@ -12,6 +12,7 @@ function CartPage({
   couponCode,
   totals,
   products,
+  user,
   onRemove,
   onQuantityChange,
   onApplyCoupon
@@ -67,8 +68,8 @@ function CartPage({
         <p>Discount: -{formatCurrency(totals.discount)}</p>
         <p>Shipping: {formatCurrency(totals.shipping)}</p>
         <h2>Total: {formatCurrency(totals.total)}</h2>
-        <Link className="btn btn-primary" to="/checkout">
-          Proceed to Checkout
+        <Link className="btn btn-primary" to={user ? '/checkout' : '/auth?redirect=%2Fcheckout'}>
+          {user ? 'Proceed to Checkout' : 'Login / Sign Up to Checkout'}
         </Link>
       </div>
 

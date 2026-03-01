@@ -3,13 +3,12 @@ import { NavLink } from 'react-router-dom';
 import { brand, promoEndDate } from '../content/siteContent';
 import PromoCountdown from './PromoCountdown';
 
-function Navbar({ cartCount, wishlistCount }) {
+function Navbar({ cartCount, wishlistCount, user, onLogout }) {
   const links = [
     { path: '/', label: 'Home' },
     { path: '/shop', label: 'Shop' },
     { path: '/about', label: 'About' },
     { path: '/faq', label: 'FAQ' },
-    { path: '/account', label: 'Account' },
     { path: '/orders', label: 'Orders' },
     { path: '/cart', label: `Cart (${cartCount})` },
     { path: '/wishlist', label: `Wishlist (${wishlistCount})` }
@@ -34,6 +33,20 @@ function Navbar({ cartCount, wishlistCount }) {
               {link.label}
             </NavLink>
           ))}
+          {user ? (
+            <>
+              <NavLink className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} to="/account">
+                My Account
+              </NavLink>
+              <button className="nav-link nav-button" onClick={onLogout}>
+                Logout
+              </button>
+            </>
+          ) : (
+            <NavLink className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} to="/auth">
+              Login / Sign Up
+            </NavLink>
+          )}
         </div>
       </nav>
     </header>
