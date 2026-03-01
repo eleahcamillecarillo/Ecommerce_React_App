@@ -1,47 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import QuantityControl from '../components/QuantityControl';
-import { fetchProductById } from '../utils/api';
 import { formatCurrency } from '../utils/format';
 
-function ProductPage({ productId, onAddToCart, onNavigate }) {
-  const [product, setProduct] = useState(null);
+function ProductPage({ productId, products, onAddToCart, onNavigate }) {
   const [quantity, setQuantity] = useState(1);
-  const [error, setError] = useState('');
-
-  useEffect(() => {
-    let mounted = true;
-
-    fetchProductById(productId)
-      .then((item) => {
-        if (mounted) {
-          setProduct(item);
-          setError('');
-        }
-      })
-      .catch(() => {
-        if (mounted) setError('Product unavailable.');
-      });
-
-    return () => {
-      mounted = false;
-    };
-  }, [productId]);
-
-  if (error) {
-    return (
-      <main className="container section-space">
-        <p className="empty-msg">{error}</p>
-        <button className="btn btn-secondary" onClick={() => onNavigate('/shop')}>
-          Back to Shop
-        </button>
-      </main>
-    );
-  }
+  const product = useMemo(() => products.find((item) => item.id === productId), [products, productId]);
 
   if (!product) {
     return (
       <main className="container section-space">
-        <p className="empty-msg">Loading product...</p>
+        <p className="empty-msg">Product unavailable.</p>
+        <button className="btn btn-secondary" onClick={() => onNavigate('/shop')}>
+          Back to Shop
+        </button>
       </main>
     );
   }

@@ -13,15 +13,13 @@ import ProductPage from './pages/ProductPage';
 import CartPage from './pages/CartPage';
 import WishlistPage from './pages/WishlistPage';
 import AboutPage from './pages/AboutPage';
-import { fetchProducts } from './utils/api';
+import productsData from './data/products.json';
 
 const getPath = () => window.location.pathname || '/';
 
 function App() {
   const [route, setRoute] = useState(getPath());
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const [products] = useState(productsData);
   const [toast, setToast] = useState('');
 
   const [cart, setCart] = useState(() => {
@@ -33,16 +31,6 @@ function App() {
     const raw = localStorage.getItem('kramille_wishlist');
     return raw ? JSON.parse(raw) : [];
   });
-
-  useEffect(() => {
-    fetchProducts()
-      .then((items) => {
-        setProducts(items);
-        setError('');
-      })
-      .catch(() => setError('Unable to load products right now. Please try again later.'))
-      .finally(() => setLoading(false));
-  }, []);
 
   useEffect(() => {
     localStorage.setItem('kramille_cart', JSON.stringify(cart));
@@ -115,22 +103,6 @@ function App() {
   const productMatch = route.match(/^\/product\/([A-Za-z0-9-]+)$/);
 
   const renderPage = () => {
-    if (loading) {
-      return (
-        <main className="container section-space">
-          <p className="empty-msg">Loading store...</p>
-        </main>
-      );
-    }
-
-    if (error) {
-      return (
-        <main className="container section-space">
-          <p className="empty-msg">{error}</p>
-        </main>
-      );
-    }
-
     if (route === '/') {
       return (
         <HomePage
@@ -182,7 +154,14 @@ function App() {
     }
 
     if (productMatch) {
-      return <ProductPage productId={productMatch[1]} onAddToCart={addToCart} onNavigate={navigate} />;
+      return (
+        <ProductPage
+          productId={productMatch[1]}
+          products={products}
+          onAddToCart={addToCart}
+          onNavigate={navigate}
+        />
+      );
     }
 
     return (
