@@ -1,0 +1,41 @@
+.hero-panel,
+.highlights article,
+.product-card,
+.about-grid article,
+.about-strip,
+.cart-item,
+.checkout-box {
+  animation: fade-up 0.5s ease both;
+}
+
+.product-card:nth-child(2n) {
+  animation-delay: 0.05s;
+}
+
+.product-card:nth-child(3n) {
+  animation-delay: 0.1s;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

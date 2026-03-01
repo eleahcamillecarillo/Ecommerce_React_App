@@ -1,0 +1,53 @@
+:root {
+  --rose-50: #fff6fa;
+  --rose-100: #ffe9f2;
+  --rose-200: #ffc9dd;
+  --rose-300: #f7a8c8;
+  --rose-400: #ef84b0;
+  --rose-500: #dc5a95;
+  --rose-700: #9e3d68;
+  --text-main: #2e1f28;
+  --text-soft: #735565;
+  --line: #f3d4e3;
+  --white: #ffffff;
+  --shadow: 0 16px 36px rgba(220, 90, 149, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: radial-gradient(circle at top right, #ffd6e9 0%, var(--rose-50) 30%, #fff 100%);
+  color: var(--text-main);
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}

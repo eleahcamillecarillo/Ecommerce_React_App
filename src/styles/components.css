@@ -1,0 +1,262 @@
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 246, 250, 0.88);
+  border-bottom: 1px solid var(--line);
+}
+
+.announcement {
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--rose-700);
+  border-bottom: 1px solid var(--line);
+}
+
+.navbar {
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand {
+  border: 0;
+  background: none;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--rose-700);
+  transition: transform 0.25s ease;
+}
+
+.brand:hover {
+  transform: translateY(-2px);
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.nav-link {
+  border: 1px solid transparent;
+  background: none;
+  color: var(--text-soft);
+  padding: 0.45rem 0.7rem;
+  border-radius: 999px;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--rose-700);
+  background: var(--rose-100);
+  border-color: var(--rose-200);
+}
+
+.btn {
+  border: 0;
+  border-radius: 999px;
+  padding: 0.65rem 1rem;
+  transition: transform 0.2s ease, filter 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.03);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--rose-500), var(--rose-400));
+  color: var(--white);
+}
+
+.btn-secondary {
+  background: var(--white);
+  color: var(--rose-700);
+  border: 1px solid var(--rose-200);
+}
+
+.btn-secondary.active {
+  background: var(--rose-100);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.product-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 22px 44px rgba(220, 90, 149, 0.2);
+}
+
+.image-wrap {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+}
+
+.image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.image-wrap:hover img {
+  transform: scale(1.07);
+}
+
+.product-meta {
+  padding: 0.85rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.category {
+  color: var(--rose-700);
+  font-size: 0.84rem;
+}
+
+.product-meta h3 {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.product-meta h3:hover {
+  color: var(--rose-500);
+}
+
+.price-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.price-row span {
+  color: var(--text-soft);
+  text-decoration: line-through;
+  font-size: 0.9rem;
+}
+
+.rating {
+  font-size: 0.88rem;
+  color: var(--text-soft);
+}
+
+.card-actions {
+  margin-top: 0.25rem;
+  display: flex;
+  gap: 0.45rem;
+}
+
+.chip {
+  border: 1px solid var(--rose-200);
+  border-radius: 999px;
+  padding: 0.42rem 0.85rem;
+  background: var(--white);
+  color: var(--rose-700);
+  transition: all 0.2s ease;
+}
+
+.chip:hover,
+.chip.active {
+  background: var(--rose-100);
+}
+
+.qty-control {
+  display: inline-flex;
+  border: 1px solid var(--rose-200);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.qty-control button,
+.qty-control span {
+  min-width: 35px;
+  padding: 0.35rem 0.5rem;
+  text-align: center;
+  border: 0;
+  background: var(--white);
+}
+
+.qty-control button {
+  transition: background 0.2s ease;
+}
+
+.qty-control button:hover {
+  background: var(--rose-100);
+}
+
+.search-input,
+.shop-toolbar select {
+  border: 1px solid var(--rose-200);
+  border-radius: 999px;
+  padding: 0.6rem 0.9rem;
+  background: var(--white);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-input:focus,
+.shop-toolbar select:focus {
+  border-color: var(--rose-400);
+  box-shadow: 0 0 0 3px rgba(220, 90, 149, 0.16);
+}
+
+.toast {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  background: var(--rose-700);
+  color: var(--white);
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  animation: float-in 0.24s ease;
+}
+
+@media (max-width: 1080px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 780px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card-actions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 520px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
