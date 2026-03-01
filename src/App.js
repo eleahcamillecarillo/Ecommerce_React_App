@@ -40,7 +40,7 @@ function App() {
         setProducts(items);
         setError('');
       })
-      .catch(() => setError('Cannot connect to API. Run backend server first.'))
+      .catch(() => setError('Unable to load products right now. Please try again later.'))
       .finally(() => setLoading(false));
   }, []);
 
