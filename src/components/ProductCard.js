@@ -2,15 +2,25 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { formatCurrency } from '../utils/format';
 
-function ProductCard({ product, onAddToCart, onToggleWishlist, inWishlist, showDescription = false, className = '' }) {
+function ProductCard({
+  product,
+  onAddToCart,
+  onToggleWishlist,
+  inWishlist,
+  showDescription = false,
+  className = '',
+  linkTo
+}) {
+  const targetLink = linkTo || `/product/${product.id}`;
+
   return (
     <article className={`product-card ${className}`.trim()}>
-      <Link className="image-wrap" to={`/product/${product.id}`}>
+      <Link className="image-wrap" to={targetLink}>
         <img src={product.image} alt={product.name} />
       </Link>
       <div className="product-meta">
         <p className="category">{product.category}</p>
-        <Link to={`/product/${product.id}`} className="product-link">
+        <Link to={targetLink} className="product-link">
           <h3>{product.name}</h3>
         </Link>
         <p className="price-row">

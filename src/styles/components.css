@@ -96,6 +96,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
+  align-items: stretch;
 }
 
 .featured-grid {
@@ -113,6 +114,12 @@
   overflow: hidden;
   box-shadow: var(--shadow);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.shop-card-wrap .product-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .product-card:hover,
@@ -142,6 +149,7 @@
   padding: 0.85rem;
   display: grid;
   gap: 0.45rem;
+  flex: 1;
 }
 
 .product-desc {
@@ -188,7 +196,7 @@
 
 .card-actions,
 .form-actions {
-  margin-top: 0.25rem;
+  margin-top: auto;
   display: flex;
   gap: 0.45rem;
   flex-wrap: wrap;

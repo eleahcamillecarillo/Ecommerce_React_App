@@ -30,6 +30,7 @@ function HomePage({ products, recentlyViewed, onAddToCart, onToggleWishlist, wis
             <ProductCard
               key={product.id}
               product={product}
+              linkTo={`/shop?item=${product.id}`}
               onAddToCart={onAddToCart}
               onToggleWishlist={onToggleWishlist}
               inWishlist={wishlistIds.includes(product.id)}

@@ -1,16 +1,19 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
 import CategoryTabs from '../components/CategoryTabs';
 import QuickViewModal from '../components/QuickViewModal';
 import SkeletonGrid from '../components/SkeletonGrid';
 
 function ShopPage({ products, onAddToCart, onToggleWishlist, wishlistIds }) {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [category, setCategory] = useState('All');
   const [query, setQuery] = useState('');
   const [sort, setSort] = useState('featured');
   const [priceCap, setPriceCap] = useState(5000);
   const [tag, setTag] = useState('all');
   const [quickView, setQuickView] = useState(null);
+  const selectedItemId = searchParams.get('item');
 
   const categories = useMemo(() => ['All', ...new Set(products.map((p) => p.category))], [products]);
   const tags = useMemo(() => ['all', ...new Set(products.flatMap((p) => p.tags || []))], [products]);
@@ -34,6 +37,25 @@ function ShopPage({ products, onAddToCart, onToggleWishlist, wishlistIds }) {
 
     return result;
   }, [products, category, query, sort, priceCap, tag]);
+
+  useEffect(() => {
+    if (!selectedItemId || !products.length) return;
+    const selected = products.find((item) => item.id === selectedItemId);
+    if (!selected) return;
+
+    setCategory('All');
+    setQuery(selected.name);
+    setQuickView(selected);
+
+    const target = document.querySelector(`[data-product-id="${selected.id}"]`);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    const next = new URLSearchParams(searchParams);
+    next.delete('item');
+    setSearchParams(next, { replace: true });
+  }, [selectedItemId, products, searchParams, setSearchParams]);
 
   if (!products.length) {
     return (
@@ -88,7 +110,7 @@ function ShopPage({ products, onAddToCart, onToggleWishlist, wishlistIds }) {
 
       <div className="product-grid">
         {filtered.map((product) => (
-          <div key={product.id} className="shop-card-wrap">
+          <div key={product.id} className="shop-card-wrap" data-product-id={product.id}>
             <ProductCard
               product={product}
               onAddToCart={onAddToCart}
