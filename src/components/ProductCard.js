@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { formatCurrency } from '../utils/format';
 
-function ProductCard({ product, onAddToCart, onToggleWishlist, inWishlist }) {
+function ProductCard({ product, onAddToCart, onToggleWishlist, inWishlist, showDescription = false, className = '' }) {
   return (
-    <article className="product-card">
+    <article className={`product-card ${className}`.trim()}>
       <Link className="image-wrap" to={`/product/${product.id}`}>
         <img src={product.image} alt={product.name} />
       </Link>
@@ -17,6 +17,7 @@ function ProductCard({ product, onAddToCart, onToggleWishlist, inWishlist }) {
           <strong>{formatCurrency(product.price)}</strong>
           <span>{formatCurrency(product.originalPrice)}</span>
         </p>
+        {showDescription ? <p className="product-desc">{product.description}</p> : null}
         <p className="rating">{product.rating} star ({product.reviews} reviews)</p>
         {product.tags?.length ? (
           <p className="tag-row">{product.tags.map((tag) => `#${tag}`).join(' ')}</p>

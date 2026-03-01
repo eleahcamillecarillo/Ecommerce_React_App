@@ -25,7 +25,7 @@ function HomePage({ products, recentlyViewed, onAddToCart, onToggleWishlist, wis
             View All
           </Link>
         </div>
-        <div className="product-grid">
+        <div className="featured-grid">
           {featured.map((product) => (
             <ProductCard
               key={product.id}
@@ -33,6 +33,8 @@ function HomePage({ products, recentlyViewed, onAddToCart, onToggleWishlist, wis
               onAddToCart={onAddToCart}
               onToggleWishlist={onToggleWishlist}
               inWishlist={wishlistIds.includes(product.id)}
+              showDescription
+              className="featured-card"
             />
           ))}
         </div>
