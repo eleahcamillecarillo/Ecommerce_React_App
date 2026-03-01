@@ -1,20 +1,20 @@
 # Kramille's Closet
 
-Minimalist pink-themed full-stack e-commerce website.
+Minimalist pink-themed e-commerce website using local JSON data (no backend required).
 
 ## Run locally
-
-1. Start backend API:
-
-```bash
-npm run server
-```
-
-2. In another terminal, start frontend:
 
 ```bash
 npm start
 ```
 
-Frontend: http://localhost:3000  
-API: http://localhost:5000/api/products
+## Deploy online (Vercel)
+
+1. Push your latest code to GitHub.
+2. In Vercel, import the repo `Ecommerce_React_App`.
+3. Framework preset: `Create React App`.
+4. Build command: `npm run build`.
+5. Output directory: `build`.
+6. Deploy.
+
+`vercel.json` is included so all routes (`/shop`, `/cart`, `/product/...`) correctly load online.
