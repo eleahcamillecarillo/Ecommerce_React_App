@@ -8,7 +8,7 @@ function ShopPage({ products, onAddToCart, onToggleWishlist, wishlistIds }) {
   const [category, setCategory] = useState('All');
   const [query, setQuery] = useState('');
   const [sort, setSort] = useState('featured');
-  const [priceCap, setPriceCap] = useState(100);
+  const [priceCap, setPriceCap] = useState(5000);
   const [tag, setTag] = useState('all');
   const [quickView, setQuickView] = useState(null);
 
@@ -60,11 +60,11 @@ function ShopPage({ products, onAddToCart, onToggleWishlist, wishlistIds }) {
         <CategoryTabs categories={categories} active={category} onChange={setCategory} />
         <div className="toolbar-row">
           <label className="range-label">
-            Max Price ${priceCap}
+            Max Price Php {priceCap}
             <input
               type="range"
-              min="20"
-              max="100"
+              min="500"
+              max="5000"
               value={priceCap}
               onChange={(event) => setPriceCap(Number(event.target.value))}
             />

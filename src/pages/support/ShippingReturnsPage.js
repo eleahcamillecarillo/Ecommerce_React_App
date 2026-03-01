@@ -7,7 +7,7 @@ function ShippingReturnsPage() {
       <div className="info-grid">
         <article>
           <h2>Shipping</h2>
-          <p>Free shipping over $60. Standard rates apply below threshold.</p>
+          <p>Free shipping over Php 3,000. Standard rates apply below threshold.</p>
           <p>Tracking details are sent by email after dispatch.</p>
         </article>
         <article>

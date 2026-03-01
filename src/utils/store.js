@@ -1,10 +1,10 @@
-export const SHIPPING_FEE = 6;
-export const FREE_SHIPPING_THRESHOLD = 60;
+export const SHIPPING_FEE = 199;
+export const FREE_SHIPPING_THRESHOLD = 3000;
 
 const COUPONS = {
   WELCOME10: { type: 'percent', value: 10 },
   PINK15: { type: 'percent', value: 15 },
-  SAVE5: { type: 'fixed', value: 5 }
+  SAVE5: { type: 'fixed', value: 200 }
 };
 
 export const getCoupon = (code) => COUPONS[code?.toUpperCase()] || null;
