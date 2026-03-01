@@ -1,4 +1,5 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React from 'react';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import './styles/base.css';
 import './styles/layout.css';
 import './styles/components.css';
@@ -13,173 +14,119 @@ import ProductPage from './pages/ProductPage';
 import CartPage from './pages/CartPage';
 import WishlistPage from './pages/WishlistPage';
 import AboutPage from './pages/AboutPage';
-import productsData from './data/products.json';
-
-const getPath = () => window.location.pathname || '/';
+import CheckoutPage from './pages/CheckoutPage';
+import AccountPage from './pages/AccountPage';
+import OrdersPage from './pages/OrdersPage';
+import OrderConfirmationPage from './pages/OrderConfirmationPage';
+import FAQPage from './pages/support/FAQPage';
+import ShippingReturnsPage from './pages/support/ShippingReturnsPage';
+import ContactPage from './pages/support/ContactPage';
+import EmptyState from './components/EmptyState';
+import { useShop } from './context/ShopContext';
 
 function App() {
-  const [route, setRoute] = useState(getPath());
-  const [products] = useState(productsData);
-  const [toast, setToast] = useState('');
-
-  const [cart, setCart] = useState(() => {
-    const raw = localStorage.getItem('kramille_cart');
-    return raw ? JSON.parse(raw) : [];
-  });
-
-  const [wishlistIds, setWishlistIds] = useState(() => {
-    const raw = localStorage.getItem('kramille_wishlist');
-    return raw ? JSON.parse(raw) : [];
-  });
-
-  useEffect(() => {
-    localStorage.setItem('kramille_cart', JSON.stringify(cart));
-  }, [cart]);
-
-  useEffect(() => {
-    localStorage.setItem('kramille_wishlist', JSON.stringify(wishlistIds));
-  }, [wishlistIds]);
-
-  useEffect(() => {
-    const onPop = () => setRoute(getPath());
-    window.addEventListener('popstate', onPop);
-    return () => window.removeEventListener('popstate', onPop);
-  }, []);
-
-  useEffect(() => {
-    if (!toast) return undefined;
-    const timeout = setTimeout(() => setToast(''), 1800);
-    return () => clearTimeout(timeout);
-  }, [toast]);
-
-  const navigate = (next) => {
-    if (next === route) return;
-    window.history.pushState({}, '', next);
-    setRoute(next);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const wishlist = useMemo(
-    () => products.filter((product) => wishlistIds.includes(product.id)),
-    [products, wishlistIds]
-  );
-
-  const addToCart = (product, quantity = 1) => {
-    setCart((current) => {
-      const index = current.findIndex((item) => item.id === product.id);
-      if (index > -1) {
-        const updated = [...current];
-        const nextQty = Math.min(product.stock, updated[index].quantity + quantity);
-        updated[index] = { ...updated[index], quantity: nextQty };
-        return updated;
-      }
-      return [...current, { ...product, quantity }];
-    });
-    setToast(`${product.name} added to cart`);
-  };
-
-  const removeFromCart = (id) => {
-    setCart((current) => current.filter((item) => item.id !== id));
-    setToast('Item removed from cart');
-  };
-
-  const updateCartQuantity = (id, quantity) => {
-    setCart((current) =>
-      current.map((item) => (item.id === id ? { ...item, quantity: Math.max(1, quantity) } : item))
-    );
-  };
-
-  const toggleWishlist = (product) => {
-    setWishlistIds((current) => {
-      if (current.includes(product.id)) {
-        setToast(`${product.name} removed from wishlist`);
-        return current.filter((id) => id !== product.id);
-      }
-      setToast(`${product.name} saved to wishlist`);
-      return [...current, product.id];
-    });
-  };
-
-  const productMatch = route.match(/^\/product\/([A-Za-z0-9-]+)$/);
-
-  const renderPage = () => {
-    if (route === '/') {
-      return (
-        <HomePage
-          products={products}
-          onNavigate={navigate}
-          onAddToCart={addToCart}
-          onToggleWishlist={toggleWishlist}
-          wishlistIds={wishlistIds}
-        />
-      );
-    }
-
-    if (route === '/shop') {
-      return (
-        <ShopPage
-          products={products}
-          onNavigate={navigate}
-          onAddToCart={addToCart}
-          onToggleWishlist={toggleWishlist}
-          wishlistIds={wishlistIds}
-        />
-      );
-    }
-
-    if (route === '/about') {
-      return <AboutPage />;
-    }
-
-    if (route === '/cart') {
-      return (
-        <CartPage
-          cart={cart}
-          onNavigate={navigate}
-          onRemove={removeFromCart}
-          onQuantityChange={updateCartQuantity}
-        />
-      );
-    }
-
-    if (route === '/wishlist') {
-      return (
-        <WishlistPage
-          wishlist={wishlist}
-          onNavigate={navigate}
-          onAddToCart={addToCart}
-          onToggleWishlist={toggleWishlist}
-        />
-      );
-    }
-
-    if (productMatch) {
-      return (
-        <ProductPage
-          productId={productMatch[1]}
-          products={products}
-          onAddToCart={addToCart}
-          onNavigate={navigate}
-        />
-      );
-    }
-
-    return (
-      <main className="container section-space">
-        <p className="empty-msg">Page not found.</p>
-      </main>
-    );
-  };
+  const {
+    products,
+    cart,
+    wishlist,
+    wishlistIds,
+    orders,
+    user,
+    recentlyViewed,
+    couponCode,
+    totals,
+    toast,
+    addToCart,
+    removeFromCart,
+    updateCartQuantity,
+    toggleWishlist,
+    applyCoupon,
+    placeOrder,
+    login,
+    logout,
+    trackRecentlyViewed
+  } = useShop();
 
   return (
     <div className="app-shell">
       <Navbar
-        route={route}
-        onNavigate={navigate}
         cartCount={cart.reduce((sum, item) => sum + item.quantity, 0)}
         wishlistCount={wishlistIds.length}
       />
-      {renderPage()}
+
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <HomePage
+              products={products}
+              recentlyViewed={recentlyViewed}
+              onAddToCart={addToCart}
+              onToggleWishlist={toggleWishlist}
+              wishlistIds={wishlistIds}
+            />
+          }
+        />
+        <Route
+          path="/shop"
+          element={
+            <ShopPage
+              products={products}
+              onAddToCart={addToCart}
+              onToggleWishlist={toggleWishlist}
+              wishlistIds={wishlistIds}
+            />
+          }
+        />
+        <Route
+          path="/product/:productId"
+          element={
+            <ProductPage
+              products={products}
+              onAddToCart={addToCart}
+              onToggleWishlist={toggleWishlist}
+              wishlistIds={wishlistIds}
+              onTrackRecentlyViewed={trackRecentlyViewed}
+            />
+          }
+        />
+        <Route
+          path="/cart"
+          element={
+            <CartPage
+              cart={cart}
+              couponCode={couponCode}
+              totals={totals}
+              products={products}
+              onRemove={removeFromCart}
+              onQuantityChange={updateCartQuantity}
+              onApplyCoupon={applyCoupon}
+            />
+          }
+        />
+        <Route
+          path="/checkout"
+          element={<CheckoutPage cart={cart} totals={totals} onPlaceOrder={placeOrder} />}
+        />
+        <Route path="/order-confirmation/:orderId" element={<OrderConfirmationPage orders={orders} />} />
+        <Route path="/wishlist" element={<WishlistPage wishlist={wishlist} onAddToCart={addToCart} onToggleWishlist={toggleWishlist} />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/faq" element={<FAQPage />} />
+        <Route path="/shipping-returns" element={<ShippingReturnsPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/account" element={<AccountPage user={user} onLogin={login} onLogout={logout} />} />
+        <Route path="/orders" element={<OrdersPage orders={orders} />} />
+        <Route path="/home" element={<Navigate to="/" replace />} />
+        <Route
+          path="*"
+          element={
+            <main className="container section-space">
+              <EmptyState title="Page not found" text="This page does not exist." actionLabel="Back Home" onAction={() => (window.location.href = '/')} />
+            </main>
+          }
+        />
+      </Routes>
+
       <Footer />
       <Toast message={toast} />
     </div>

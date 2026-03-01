@@ -1,10 +1,26 @@
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
 .hero-panel,
 .highlights article,
 .product-card,
 .about-grid article,
 .about-strip,
 .cart-item,
-.checkout-box {
+.checkout-box,
+.form-card,
+.order-card,
+.info-grid article,
+.faq-item,
+.account-card,
+.confirm-box,
+.empty-state {
   animation: fade-up 0.5s ease both;
 }
 

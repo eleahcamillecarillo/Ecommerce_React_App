@@ -4,6 +4,8 @@ export const brand = {
   announcement: 'Free shipping for orders over $60'
 };
 
+export const promoEndDate = '2026-12-31T23:59:59+08:00';
+
 export const homeHighlights = [
   {
     title: 'Soft Palette',

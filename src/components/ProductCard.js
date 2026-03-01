@@ -1,20 +1,26 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { formatCurrency } from '../utils/format';
 
-function ProductCard({ product, onView, onAddToCart, onToggleWishlist, inWishlist }) {
+function ProductCard({ product, onAddToCart, onToggleWishlist, inWishlist }) {
   return (
     <article className="product-card">
-      <div className="image-wrap" onClick={() => onView(product.id)} role="button" tabIndex={0}>
+      <Link className="image-wrap" to={`/product/${product.id}`}>
         <img src={product.image} alt={product.name} />
-      </div>
+      </Link>
       <div className="product-meta">
         <p className="category">{product.category}</p>
-        <h3 onClick={() => onView(product.id)}>{product.name}</h3>
+        <Link to={`/product/${product.id}`} className="product-link">
+          <h3>{product.name}</h3>
+        </Link>
         <p className="price-row">
           <strong>{formatCurrency(product.price)}</strong>
           <span>{formatCurrency(product.originalPrice)}</span>
         </p>
         <p className="rating">{product.rating} star ({product.reviews} reviews)</p>
+        {product.tags?.length ? (
+          <p className="tag-row">{product.tags.map((tag) => `#${tag}`).join(' ')}</p>
+        ) : null}
         <div className="card-actions">
           <button className="btn btn-primary" onClick={() => onAddToCart(product)}>
             Add to Cart

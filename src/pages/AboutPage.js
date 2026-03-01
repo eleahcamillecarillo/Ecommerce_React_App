@@ -5,11 +5,8 @@ function AboutPage() {
     <main className="container section-space about-page">
       <h1>About Kramille's Closet</h1>
       <p>
-        Kramille's Closet is a pink-inspired minimalist fashion shop made for soft, wearable
-        pieces that fit every routine.
-      </p>
-      <p>
-        Every collection is curated to mix easily, feel comfortable, and stay elegant over time.
+        Kramille's Closet is a pink-inspired minimalist fashion shop made for soft, wearable pieces
+        that fit every routine.
       </p>
       <div className="about-grid">
         <article>

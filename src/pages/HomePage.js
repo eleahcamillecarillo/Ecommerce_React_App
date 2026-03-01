@@ -1,14 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import HeroBanner from '../components/HeroBanner';
 import ProductCard from '../components/ProductCard';
 import { brand, homeHighlights } from '../content/siteContent';
 
-function HomePage({ products, onNavigate, onAddToCart, onToggleWishlist, wishlistIds }) {
+function HomePage({ products, recentlyViewed, onAddToCart, onToggleWishlist, wishlistIds }) {
   const featured = products.slice(0, 4);
 
   return (
     <main>
-      <HeroBanner onBrowse={() => onNavigate('/shop')} />
+      <HeroBanner />
       <section className="container highlights">
         {homeHighlights.map((item) => (
           <article key={item.title}>
@@ -20,16 +21,15 @@ function HomePage({ products, onNavigate, onAddToCart, onToggleWishlist, wishlis
       <section className="container section-space">
         <div className="section-head">
           <h2>Featured Picks</h2>
-          <button className="btn btn-secondary" onClick={() => onNavigate('/shop')}>
+          <Link className="btn btn-secondary" to="/shop">
             View All
-          </button>
+          </Link>
         </div>
         <div className="product-grid">
           {featured.map((product) => (
             <ProductCard
               key={product.id}
               product={product}
-              onView={(id) => onNavigate(`/product/${id}`)}
               onAddToCart={onAddToCart}
               onToggleWishlist={onToggleWishlist}
               inWishlist={wishlistIds.includes(product.id)}
@@ -37,6 +37,26 @@ function HomePage({ products, onNavigate, onAddToCart, onToggleWishlist, wishlis
           ))}
         </div>
       </section>
+
+      {recentlyViewed.length > 0 && (
+        <section className="container section-space">
+          <div className="section-head">
+            <h2>Recently Viewed</h2>
+          </div>
+          <div className="product-grid">
+            {recentlyViewed.slice(0, 4).map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                onAddToCart={onAddToCart}
+                onToggleWishlist={onToggleWishlist}
+                inWishlist={wishlistIds.includes(product.id)}
+              />
+            ))}
+          </div>
+        </section>
+      )}
+
       <section className="container about-strip">
         <h2>{brand.tagline}</h2>
       </section>

@@ -1,31 +1,38 @@
 import React from 'react';
-import { brand } from '../content/siteContent';
+import { NavLink } from 'react-router-dom';
+import { brand, promoEndDate } from '../content/siteContent';
+import PromoCountdown from './PromoCountdown';
 
-function Navbar({ route, onNavigate, cartCount, wishlistCount }) {
+function Navbar({ cartCount, wishlistCount }) {
   const links = [
     { path: '/', label: 'Home' },
     { path: '/shop', label: 'Shop' },
     { path: '/about', label: 'About' },
+    { path: '/faq', label: 'FAQ' },
+    { path: '/account', label: 'Account' },
+    { path: '/orders', label: 'Orders' },
     { path: '/cart', label: `Cart (${cartCount})` },
     { path: '/wishlist', label: `Wishlist (${wishlistCount})` }
   ];
 
   return (
     <header className="topbar">
-      <p className="announcement">{brand.announcement}</p>
+      <p className="announcement">
+        {brand.announcement} <PromoCountdown targetDate={promoEndDate} />
+      </p>
       <nav className="navbar container">
-        <button className="brand" onClick={() => onNavigate('/')}>
+        <NavLink className="brand" to="/">
           {brand.name}
-        </button>
+        </NavLink>
         <div className="nav-links">
           {links.map((link) => (
-            <button
+            <NavLink
               key={link.path}
-              className={`nav-link ${route === link.path ? 'active' : ''}`}
-              onClick={() => onNavigate(link.path)}
+              className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+              to={link.path}
             >
               {link.label}
-            </button>
+            </NavLink>
           ))}
         </div>
       </nav>
